@@ -1,0 +1,275 @@
+@import "tailwindcss";
+
+@theme {
+  --color-charcoal: #1a1a1a;
+  --color-charcoal-light: #2a2a2a;
+  --color-warm-white: #faf9f7;
+  --color-soft-gray: #f5f4f1;
+  --color-stone: #e8e4dd;
+  --color-stone-dark: #c9c3b8;
+  --color-bronze: #a88d6a;
+  --color-bronze-dark: #8a7356;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555555;
+  --color-text-muted: #888888;
+  --color-border: #e5e2dc;
+  --color-border-dark: #d4d0c8;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-warm-white);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "ss01", "cv11";
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Thin scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-soft-gray);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-stone-dark);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Form inputs */
+input, select, textarea {
+  font-family: var(--font-sans);
+}
+
+/* Button base */
+.btn-primary {
+  background-color: var(--color-charcoal);
+  color: var(--color-warm-white);
+  padding: 0.875rem 1.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+  border: 1px solid var(--color-charcoal);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background-color: var(--color-charcoal-light);
+  border-color: var(--color-charcoal-light);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-charcoal);
+  padding: 0.875rem 1.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+  border: 1px solid var(--color-charcoal);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  background-color: var(--color-charcoal);
+  color: var(--color-warm-white);
+}
+
+.btn-outline-light {
+  background-color: transparent;
+  color: var(--color-warm-white);
+  padding: 0.875rem 1.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+  border: 1px solid rgba(250, 249, 247, 0.5);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.btn-outline-light:hover {
+  background-color: var(--color-warm-white);
+  color: var(--color-charcoal);
+  border-color: var(--color-warm-white);
+}
+
+/* Property card hover */
+.property-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.property-card:hover {
+  transform: translateY(-4px);
+}
+.property-card .property-image {
+  overflow: hidden;
+}
+.property-card .property-image img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.property-card:hover .property-image img {
+  transform: scale(1.04);
+}
+
+/* Underline link animation */
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+  animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.fade-in-delay-1 { animation-delay: 0.1s; opacity: 0; }
+.fade-in-delay-2 { animation-delay: 0.25s; opacity: 0; }
+.fade-in-delay-3 { animation-delay: 0.4s; opacity: 0; }
+
+/* Nav link */
+.nav-link {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+  transition: color 0.2s ease;
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-bronze);
+  transition: width 0.3s ease;
+}
+.nav-link:hover {
+  color: var(--color-bronze-dark);
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Container utility */
+.container-x {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media (min-width: 768px) {
+  .container-x {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .container-x {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+/* Form field base */
+.form-input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background-color: var(--color-warm-white);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  font-size: 0.9375rem;
+  transition: border-color 0.2s ease;
+  outline: none;
+}
+.form-input:focus {
+  border-color: var(--color-charcoal);
+}
+.form-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.form-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+/* Section heading */
+.section-kicker {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-bronze-dark);
+  margin-bottom: 1rem;
+}
+
+/* Divider */
+.divider-thin {
+  height: 1px;
+  background-color: var(--color-border);
+  width: 100%;
+}
